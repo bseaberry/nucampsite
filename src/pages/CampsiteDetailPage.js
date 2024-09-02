@@ -1,6 +1,7 @@
 import { Container, Row } from 'reactstrap';
 import { useParams } from 'react-router-dom';
 import { selectCampsiteById } from '../features/counter/campsitesSlice';
+import CommentsList from '../features/comments/CommentList';
 import CampsiteDetail from '../features/counter/campsites/CampsiteDetail';
 
 const CampsiteDetailPage = () => {
@@ -11,6 +12,7 @@ const CampsiteDetailPage = () => {
         <Container>
             <Row>
                 <CampsiteDetail campsite={campsite} />
+                <CommentsList campsiteId={campsiteId} />
             </Row>
         </Container>
     );
