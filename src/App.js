@@ -6,10 +6,20 @@ import Header from './components/Header.js';
 import Footer from './components/Footer.js';
 import CampsitesDirectoryPage from './pages/CampsitesDirectoryPage.js';
 import AboutPage from './pages/AboutPage.js';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCampsites } from './features/counter/campsitesSlice.js';
 import './App.css';
 
 
 function App() {
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(fetchCampsites());
+  }, [dispatch]);
+
+  
   return (
     <div className="App">
       <Header />
