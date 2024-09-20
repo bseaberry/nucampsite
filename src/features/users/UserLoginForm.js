@@ -12,6 +12,7 @@ import {
 import { validateUserLoginForm } from '../../utils/validateUserLoginForm';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import defaultAvatar from '../../app/assets/img/unicorn.png';
+import { current } from '@reduxjs/toolkit';
 
 const UserLoginForm = () => {
     const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -24,6 +25,7 @@ const UserLoginForm = () => {
             username: values.username,
             password: values.password
         }
+        dispatch(setCurrentUser(currentUser));
         setLoginModalOpen(false);
     }
 
@@ -60,14 +62,14 @@ const UserLoginForm = () => {
                                     Username
                                 </Label>
                                 <Field id= 'username' name='username' placeholder='Username' className='form-control' />
-                                <ErrorMessage name='rating'>
+                                <ErrorMessage name='username'>
                                     {(msg) => <p className='text-danger'>{msg}</p>}
                                 </ErrorMessage>
                             </FormGroup>
                             <FormGroup>
                                 <Label htmlFor='password'>Password</Label>
                                 <Field id='passoword' name='password' placeholder='Password' className='form-control' />
-                                <ErrorMessage name='rating'>
+                                <ErrorMessage name='password'>
                                     {(msg) => <p className='text-danger'>{msg}</p>}
                                 </ErrorMessage>
                             </FormGroup>
