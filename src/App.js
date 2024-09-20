@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchCampsites } from './features/counter/campsitesSlice.js';
 import { fetchPartners } from './features/partners/partnersSlice.js';
+import { fetchPromotions } from './features/promotions/promotionSlice.js';
 import './App.css';
 
 
@@ -19,6 +20,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchCampsites());
     dispatch(fetchPartners());
+    dispatch(fetchPromotions());
   }, [dispatch]);
 
   
